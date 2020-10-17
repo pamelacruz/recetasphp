@@ -52,7 +52,7 @@ if (isset($resultadousuarios['users_id'])) {
 
 $token = time();
 $token = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($token));
-$insert = "insert into tokens (users_id, token) values('".$user['iduser']."', $token); ";
+$insert = "insert into tokens (users_id, token) values('".$user['iduser']."', '{$token}'); ";
 $res = query($insert);
 
 echo json_encode([
