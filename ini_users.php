@@ -9,7 +9,7 @@ $password = 'password';
 
 $password = sha1($password);
 
-$insert = "insert into users (first_name, last_name, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
+$insert = "insert into users (firstName, lastName, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
 $res = query($insert);
 
 echo "Usuarios<br><br><br>";
@@ -23,7 +23,7 @@ $password = 'password';
 
 $password = sha1($password);
 
-$insert = "insert into users (first_name, last_name, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
+$insert = "insert into users (firstName, lastName, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
 $res = query($insert);
 
 echo "user:pedro@gmail.com<br>";
@@ -36,7 +36,7 @@ $password = 'password';
 
 $password = sha1($password);
 
-$insert = "insert into users (first_name, last_name, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
+$insert = "insert into users (firstName, lastName, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
 $res = query($insert);
 
 echo "user:catherine@gmail.com<br>";
@@ -49,7 +49,7 @@ $password = 'password';
 
 $password = sha1($password);
 
-$insert = "insert into users (first_name, last_name, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
+$insert = "insert into users (firstName, lastName, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
 $res = query($insert);
 
 echo "user:andrea@gmail.com<br>";

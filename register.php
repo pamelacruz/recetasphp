@@ -5,11 +5,13 @@ include 'core/funciones.php';
 
 $JSONData = file_get_contents("php://input");
 $object = json_decode($JSONData);
-$firstName = $object->first_name; 
-$lastName = $object->last_name;
+$firstName = $object->firstName; 
+$lastName = $object->lastName;
 $email = $object->email;
 $password = $object->password;
-$password_confirm = $object->password_confirm;
+$confirmPassword = $object->confirmPassword;
+$Id = $object->Id;
+$action = $object->action;
 
 if (!isset($firstName)) {
     echo json_encode([
@@ -25,16 +27,31 @@ if (!isset($email)) {
     exit;
 }
 
-if ($password !== $password_confirm) {
-    echo json_encode([
-        'message' => 'Password no coincide'
-    ]);
-    exit;
+if ($action == "add") {
+    if ($password !== $confirmPassword) {
+        echo json_encode([
+            'message' => 'Password no coincide'
+        ]);
+        exit;
+    }
+    $password = sha1($password);
+    $Sql = "insert into users (firstName, lastName, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
+} 
+if ($action == "edit") {
+    $PassVal = '';
+    if (!empty($password)) {
+        if ($password !== $confirmPassword) {
+            echo json_encode([
+                'message' => 'Password no coincide'
+            ]);
+            exit;
+        }
+        $password = sha1($password);
+        $PassVal = "password='$password'";
+    }
+    $Sql = "UPDATE users SET firstName='$firstName', lastName='$lastName', email='$email' $PassVal WHERE iduser='$Id';";
 }
-
-$password = sha1($password);
-$insert = "insert into users (first_name, last_name, email, password) values('$firstName', '$lastName', '$email', '$password'); ";
-$res = query($insert);
+$res = query($Sql);
 
 echo json_encode([
     'message' => 'success',

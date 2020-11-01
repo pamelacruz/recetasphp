@@ -28,8 +28,8 @@ $Rows = makequery($query);
 foreach ($Rows as $row) {
     $Info[] = array(
         'id' => $row['iduser'],
-        'first_name' => $row['first_name'],
-        'last_name' => $row['last_name'],
+        'firstName' => $row['firstName'],
+        'lastName' => $row['lastName'],
         'email' => $row['email'],
     );
 }

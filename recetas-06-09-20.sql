@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Versión 4541
+# Versiï¿½n 4541
 #
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.4.13-MariaDB-1:10.4.13+maria~bionic)
 # Base de datos: recetas
-# Tiempo de Generación: 2020-09-06 18:56:42 +0000
+# Tiempo de Generaciï¿½n: 2020-09-06 18:56:42 +0000
 # ************************************************************
 
 
@@ -41,8 +41,8 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `iduser` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(150) NOT NULL,
-  `last_name` varchar(150) NOT NULL,
+  `firstName` varchar(150) NOT NULL,
+  `lastName` varchar(150) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`iduser`)
